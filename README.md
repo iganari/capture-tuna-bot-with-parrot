@@ -38,6 +38,35 @@ gsutil 4.50
 Google Apps Engineのサービスからでdefaultをクリックし現在のURLをメモする。
 
 
+## GCP を操作するための準備をする
+
++ GCP の認証をする
+
+```
+gcloud auth login -q
+```
+
++ gcloud コマンドの設定を行う
+
+```
+export _pj_id='Your GCP Project ID'
+export _rg='asia-northeast1'
+export _zn='asia-northeast1-c'
+
+gcloud config set project ${_pj_id}
+gcloud config set compute/region ${_rg}
+```
+
++ GCP Project 内で各コンポーネントの API を有効化する
+
+```
+gcloud beta services enable cloudbuild.googleapis.com && \
+gcloud beta services enable appengine.googleapis.com && \
+gcloud beta services enable storage.googleapis.com && \
+gcloud beta services enable storage-component.googleapis.com
+```
+
+
 ## マグロの画像準備
 
 デフォルトではイラストやの画像があるので、初期設定のままでいい場合は設定不要。画像を変更したい場合は、static/images/に使用したいマグロ画像の準備を行う。なおLINEではプレビュー用とオリジナル用で2枚必要になる。

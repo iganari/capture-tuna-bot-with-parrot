@@ -6,6 +6,8 @@ env_variables:
   YOUR_CHANNEL_ACCESS_TOKEN: ""
   STORAGE_BUCKET: ""  ## example https://storage.googleapis.com/{Bucket Name}
 
+service: parrot
+
 handlers:
 # All URLs ending in .gif .png or .jpg are treated as paths to
 # static files in the static/ directory. The URL pattern is a
